@@ -1,0 +1,19 @@
+# C build artifacts
+*.o
+*.d
+multiclust
+
+# Python cache
+__pycache__/
+*.pyc
+
+# Output directories
+out_c/
+out_c_wolves/
+out_py_wolves/
+
+# Editor / misc
+*.swp
+*.swo
+.DS_Store
+

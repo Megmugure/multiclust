@@ -1,0 +1,27 @@
+PLINK v1.90b6.24 64-bit (6 Jun 2021)
+Options in effect:
+  --allow-extra-chr
+  --out wolves.str
+  --recode structure
+  --vcf wolves_1000loci.vcf
+
+Hostname: mesx
+Working directory: /home3/mwanjiku/multiclust/tests/data
+Start time: Mon Nov 24 15:30:16 2025
+
+Random number seed: 1764027016
+128827 MB RAM detected; reserving 64413 MB for main workspace.
+--vcf: wolves.str-temporary.bed + wolves.str-temporary.bim +
+wolves.str-temporary.fam written.
+1000 variants loaded from .bim file.
+18 people (0 males, 0 females, 18 ambiguous) loaded from .fam.
+Ambiguous sex IDs written to wolves.str.nosex .
+Using 1 thread (no multithreaded calculations invoked).
+Before main variant filters, 18 founders and 0 nonfounders present.
+Calculating allele frequencies... done.
+Total genotyping rate is 0.976167.
+1000 variants and 18 people pass filters and QC.
+Note: No phenotypes present.
+--recode structure to wolves.str.recode.strct_in ... done.
+
+End time: Mon Nov 24 15:30:16 2025
