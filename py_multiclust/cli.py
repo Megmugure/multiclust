@@ -140,7 +140,7 @@ def main(argv=None) -> None:
         )
     )
 
-    # ---- Required core arguments ----
+    # Required core arguments 
 
     parser.add_argument(
         "-k", "--K",
@@ -161,7 +161,7 @@ def main(argv=None) -> None:
         help="Input format (currently only 'stru' is supported).",
     )
 
-    # ---- Genotype / model options ----
+    # Genotype / model options 
 
     parser.add_argument(
         "-p", "--ploidy",
@@ -170,7 +170,7 @@ def main(argv=None) -> None:
         help="Ploidy (default: 2).",
     )
 
-    # ---- EM control parameters ----
+    # EM control parameters 
 
     parser.add_argument(
         "-n", "--n_init",
@@ -200,7 +200,7 @@ def main(argv=None) -> None:
         ),
     )
 
-    # ---- Output options ----
+    # Output options 
 
     parser.add_argument(
         "-d", "--outdir",
@@ -212,9 +212,9 @@ def main(argv=None) -> None:
     # Parse CLI args (or provided argv list, useful for testing)
     args = parser.parse_args(argv)
 
-    # ------------------------------------------------------------------
+    
     # 1. Load data
-    # ------------------------------------------------------------------
+    
     if args.format != "stru":
         raise ValueError(
             f"Only STRUCTURE format ('stru') is supported for now, "
@@ -228,9 +228,9 @@ def main(argv=None) -> None:
         has_pops=True,
     )
 
-    # ------------------------------------------------------------------
+    
     # 2. Run multiple EM initializations for fixed K
-    # ------------------------------------------------------------------
+   
     K = args.K
     max_iter = args.max_iter
     tol = args.tol
@@ -271,9 +271,9 @@ def main(argv=None) -> None:
 
     assert best_model is not None, "Internal error: best_model never set"
 
-    # ------------------------------------------------------------------
+    
     # 3. Prepare output paths
-    # ------------------------------------------------------------------
+    
     in_basename = os.path.basename(args.file)  # e.g. "wolves.str"
 
     # Naming scheme close to the C implementation:
@@ -281,14 +281,14 @@ def main(argv=None) -> None:
     out_prefix = f"{in_basename}.mix.K={K}"
     indivq_path = os.path.join(args.outdir, f"{out_prefix}.indivq")
 
-    # ------------------------------------------------------------------
+    
     # 4. Write Q (indivq) file
-    # ------------------------------------------------------------------
+    
     _write_indivq(indivq_path, best_model, data.ids, data.pops)
 
-    # ------------------------------------------------------------------
+    
     # 5. Print final summary
-    # ------------------------------------------------------------------
+    
     print()
     print("Best run summary")
     print("----------------")
