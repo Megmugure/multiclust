@@ -6,7 +6,7 @@ NumPy-friendly container.
 
 Main task:
 
-    STRUCTURE text file  -->  StruData(genotypes, ids, pops, ploidy)
+    STRUCTURE text file  ->  StruData(genotypes, ids, pops, ploidy)
 
 where
 
@@ -150,7 +150,7 @@ def load_stru(
     # Number of non-genotype columns at the start of each data line
     meta_cols = (1 if has_ids else 0) + (1 if has_pops else 0)
 
-    # ---------- First pass: collect candidate lines ----------
+    # First pass: collect candidate lines 
     lines_info = []  # (line_number, tokens_list, num_columns)
 
     with open(path, "r") as f:
@@ -177,7 +177,7 @@ def load_stru(
     if not lines_info:
         raise ValueError(f"No usable lines found in {path}")
 
-    # ---------- Determine the dominant compatible column count ----------
+    # Determine the dominant compatible column count 
     col_freq = {}
 
     for lineno, tokens, n_cols in lines_info:
@@ -219,7 +219,7 @@ def load_stru(
         except ValueError:
             return False
 
-    # ---------- Second pass: parse data lines ----------
+    # Second pass: parse data lines
     for lineno, tokens, n_cols in lines_info:
         if n_cols != expected_n_cols:
             continue
@@ -273,9 +273,7 @@ def load_stru(
     return StruData(genotypes=genotypes, ids=ids_arr, pops=pops_arr, ploidy=ploidy)
 
 
-# ---------------------------------------------------------------------------
 # Minimal self-test / example usage
-# ---------------------------------------------------------------------------
 
 if __name__ == "__main__":
     # Example use:
