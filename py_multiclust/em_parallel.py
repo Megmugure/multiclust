@@ -43,9 +43,9 @@ import numpy as np
 #   - P : (K, L, A)
 
 
-# ---------------------------------------------------------------------------
+
 # Helper: split locus indices into chunks
-# ---------------------------------------------------------------------------
+
 
 def _chunk_indices(n_loci: int, n_jobs: int) -> List[slice]:
     """
@@ -85,9 +85,9 @@ def _chunk_indices(n_loci: int, n_jobs: int) -> List[slice]:
     return slices
 
 
-# ---------------------------------------------------------------------------
+
 # Chunk-level expected counts (M-step) for one process
-# ---------------------------------------------------------------------------
+
 
 def _compute_counts_chunk(
     X_chunk: np.ndarray,  # shape (I, Lc, M)
@@ -136,9 +136,9 @@ def _compute_counts_chunk(
     return counts
 
 
-# ---------------------------------------------------------------------------
+
 # Parallel and serial expected counts over all loci
-# ---------------------------------------------------------------------------
+
 
 def _compute_counts_parallel(
     X: np.ndarray,  # (I, L, M)
@@ -235,9 +235,9 @@ def _compute_counts_serial(
     return counts
 
 
-# ---------------------------------------------------------------------------
+
 # E-step (serial, explicit)
-# ---------------------------------------------------------------------------
+
 
 def _e_step(
     X: np.ndarray,   # (I, L, M)
@@ -312,9 +312,9 @@ def _e_step(
     return Q, ll
 
 
-# ---------------------------------------------------------------------------
+
 # Main parallel EM driver
-# ---------------------------------------------------------------------------
+
 
 def em_run_parallel(
     model,
