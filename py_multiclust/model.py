@@ -89,9 +89,9 @@ class MulticlustModel:
     ids: Optional[np.ndarray] = None
     pops: Optional[np.ndarray] = None
 
-    # ------------------------------------------------------------------
+   
     # Convenience properties
-    # ------------------------------------------------------------------
+   
     @property
     def n_ind(self) -> int:
         """Number of individuals."""
@@ -107,9 +107,9 @@ class MulticlustModel:
         """Number of allele copies per locus."""
         return self.X.shape[2]
 
-    # ------------------------------------------------------------------
+    
     # Constructor from StruData
-    # ------------------------------------------------------------------
+    
     @classmethod
     def from_data(
         cls,
@@ -187,9 +187,9 @@ class MulticlustModel:
         )
 
 
-# ---------------------------------------------------------------------------
+
 # Minimal sanity-check when running this module directly
-# ---------------------------------------------------------------------------
+
 
 if __name__ == "__main__":
     # Example:
