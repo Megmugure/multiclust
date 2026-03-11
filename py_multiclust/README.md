@@ -1,7 +1,7 @@
 # py_multiclust
 
 This folder contains my in-progress Python reimplementation of the MULTICLUST C code.  
-The goal is not to build a perfect drop-in replacement, but a clear, readable version I can use to understand, document, and extend the algorithm for my dissertation.
+The goal is not to build a version I can use to extend an algorithm for my dissertation.
 
 ---
 
