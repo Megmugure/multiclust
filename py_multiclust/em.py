@@ -194,16 +194,16 @@ def _m_step(
       3. Admixture proportions:
             Q[i,k] = R[i,k]
     """
-    # ----------------------
+    
     # 1. Update mixture weights pi
-    # ----------------------
+    
     Nk = R.sum(axis=0) + _EPS  # (K,)
     pi = Nk / Nk.sum()
     model.pi = pi
 
-    # ----------------------
+    
     # 2. Update allele frequencies P
-    # ----------------------
+    
     # weighted_counts[i, k, l, a] = R[i,k] * counts[i,l,a]
     weighted_counts = R[:, :, None, None] * counts[:, None, :, :]  # (n_ind, K, n_loci, n_alleles)
 
@@ -216,9 +216,9 @@ def _m_step(
     P /= P.sum(axis=2, keepdims=True)  # normalize along allele axis
     model.P = P
 
-    # ----------------------
+    
     # 3. Update Q (admixture proportions)
-    # ----------------------
+    
     model.Q = R.copy()
 
 
